@@ -11,7 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TerminalIndexRouteImport } from './routes/terminal.index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as TerminalScanRouteImport } from './routes/terminal.scan'
+import { Route as TerminalResultRouteImport } from './routes/terminal.result'
+import { Route as DashboardEmployeesRouteImport } from './routes/dashboard.employees'
+import { Route as DashboardAttendanceRouteImport } from './routes/dashboard.attendance'
+import { Route as DashboardAddRouteImport } from './routes/dashboard.add'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -23,40 +29,122 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TerminalIndexRoute = TerminalIndexRouteImport.update({
+  id: '/terminal/',
+  path: '/terminal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TerminalScanRoute = TerminalScanRouteImport.update({
+  id: '/terminal/scan',
+  path: '/terminal/scan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TerminalResultRoute = TerminalResultRouteImport.update({
+  id: '/terminal/result',
+  path: '/terminal/result',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardEmployeesRoute = DashboardEmployeesRouteImport.update({
+  id: '/dashboard/employees',
+  path: '/dashboard/employees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardAttendanceRoute = DashboardAttendanceRouteImport.update({
+  id: '/dashboard/attendance',
+  path: '/dashboard/attendance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardAddRoute = DashboardAddRouteImport.update({
+  id: '/dashboard/add',
+  path: '/dashboard/add',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/dashboard/add': typeof DashboardAddRoute
+  '/dashboard/attendance': typeof DashboardAttendanceRoute
+  '/dashboard/employees': typeof DashboardEmployeesRoute
+  '/terminal/result': typeof TerminalResultRoute
+  '/terminal/scan': typeof TerminalScanRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/terminal/': typeof TerminalIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/dashboard/add': typeof DashboardAddRoute
+  '/dashboard/attendance': typeof DashboardAttendanceRoute
+  '/dashboard/employees': typeof DashboardEmployeesRoute
+  '/terminal/result': typeof TerminalResultRoute
+  '/terminal/scan': typeof TerminalScanRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/terminal': typeof TerminalIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/dashboard/add': typeof DashboardAddRoute
+  '/dashboard/attendance': typeof DashboardAttendanceRoute
+  '/dashboard/employees': typeof DashboardEmployeesRoute
+  '/terminal/result': typeof TerminalResultRoute
+  '/terminal/scan': typeof TerminalScanRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/terminal/': typeof TerminalIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/dashboard/'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/dashboard/add'
+    | '/dashboard/attendance'
+    | '/dashboard/employees'
+    | '/terminal/result'
+    | '/terminal/scan'
+    | '/dashboard/'
+    | '/terminal/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/dashboard'
-  id: '__root__' | '/' | '/login' | '/dashboard/'
+  to:
+    | '/'
+    | '/login'
+    | '/dashboard/add'
+    | '/dashboard/attendance'
+    | '/dashboard/employees'
+    | '/terminal/result'
+    | '/terminal/scan'
+    | '/dashboard'
+    | '/terminal'
+  id:
+    | '__root__'
+    | '/'
+    | '/login'
+    | '/dashboard/add'
+    | '/dashboard/attendance'
+    | '/dashboard/employees'
+    | '/terminal/result'
+    | '/terminal/scan'
+    | '/dashboard/'
+    | '/terminal/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LoginRoute: typeof LoginRoute
+  DashboardAddRoute: typeof DashboardAddRoute
+  DashboardAttendanceRoute: typeof DashboardAttendanceRoute
+  DashboardEmployeesRoute: typeof DashboardEmployeesRoute
+  TerminalResultRoute: typeof TerminalResultRoute
+  TerminalScanRoute: typeof TerminalScanRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
+  TerminalIndexRoute: typeof TerminalIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,11 +163,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terminal/': {
+      id: '/terminal/'
+      path: '/terminal'
+      fullPath: '/terminal/'
+      preLoaderRoute: typeof TerminalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/': {
       id: '/dashboard/'
       path: '/dashboard'
       fullPath: '/dashboard/'
       preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terminal/scan': {
+      id: '/terminal/scan'
+      path: '/terminal/scan'
+      fullPath: '/terminal/scan'
+      preLoaderRoute: typeof TerminalScanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terminal/result': {
+      id: '/terminal/result'
+      path: '/terminal/result'
+      fullPath: '/terminal/result'
+      preLoaderRoute: typeof TerminalResultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/employees': {
+      id: '/dashboard/employees'
+      path: '/dashboard/employees'
+      fullPath: '/dashboard/employees'
+      preLoaderRoute: typeof DashboardEmployeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/attendance': {
+      id: '/dashboard/attendance'
+      path: '/dashboard/attendance'
+      fullPath: '/dashboard/attendance'
+      preLoaderRoute: typeof DashboardAttendanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/add': {
+      id: '/dashboard/add'
+      path: '/dashboard/add'
+      fullPath: '/dashboard/add'
+      preLoaderRoute: typeof DashboardAddRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -88,8 +218,23 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LoginRoute: LoginRoute,
+  DashboardAddRoute: DashboardAddRoute,
+  DashboardAttendanceRoute: DashboardAttendanceRoute,
+  DashboardEmployeesRoute: DashboardEmployeesRoute,
+  TerminalResultRoute: TerminalResultRoute,
+  TerminalScanRoute: TerminalScanRoute,
   DashboardIndexRoute: DashboardIndexRoute,
+  TerminalIndexRoute: TerminalIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
