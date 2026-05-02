@@ -18,83 +18,9 @@ export const Route = createFileRoute("/login")({
 function LoginPage() {
   const [showPwd, setShowPwd] = useState(false);
   return (
-    <div className="grid min-h-screen lg:grid-cols-2">
-      {/* Left decorative */}
-      <div className="relative hidden overflow-hidden bg-sidebar-bg lg:block">
-        <div className="absolute inset-0 grid-bg opacity-20" aria-hidden />
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--color-primary) 30%, transparent) 0%, transparent 60%)",
-          }}
-        />
-
-        <div className="relative z-10 flex h-full flex-col p-10">
-          <Link to="/" className="inline-flex items-center gap-3 self-start">
-            <div className="grid h-10 w-10 place-items-center rounded-xl gradient-primary glow-primary">
-              <Hexagon className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
-            </div>
-            <div>
-              <div className="font-display text-sm font-bold">FaceGate</div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">PRÉSENCE</div>
-            </div>
-          </Link>
-
-          <div className="relative mx-auto my-auto w-full max-w-md">
-            <img
-              src={neuralFace}
-              alt="Réseau neuronal de reconnaissance faciale"
-              className="w-full select-none"
-              width={1024}
-              height={1280}
-              draggable={false}
-            />
-            {/* Floating stat cards */}
-            <div className="absolute -left-6 top-12 rounded-xl glass-strong p-3 shadow-elevated animate-float" style={{ animationDelay: "0s" }}>
-              <div className="flex items-center gap-2.5">
-                <span className="grid h-8 w-8 place-items-center rounded-lg bg-success/20">
-                  <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
-                </span>
-                <div>
-                  <div className="font-mono text-sm font-bold">2 847</div>
-                  <div className="text-[10px] text-muted-foreground">scans aujourd'hui</div>
-                </div>
-              </div>
-            </div>
-            <div className="absolute -right-4 top-1/3 rounded-xl glass-strong p-3 shadow-elevated animate-float" style={{ animationDelay: "1.5s" }}>
-              <div className="flex items-center gap-2.5">
-                <span className="grid h-8 w-8 place-items-center rounded-lg bg-info/20">
-                  <span className="h-2 w-2 rounded-full bg-info" />
-                </span>
-                <div>
-                  <div className="font-mono text-sm font-bold">98,7%</div>
-                  <div className="text-[10px] text-muted-foreground">précision</div>
-                </div>
-              </div>
-            </div>
-            <div className="absolute -left-2 bottom-16 rounded-xl glass-strong p-3 shadow-elevated animate-float" style={{ animationDelay: "3s" }}>
-              <div className="flex items-center gap-2.5">
-                <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary/20">
-                  <span className="h-2 w-2 rounded-full bg-primary" />
-                </span>
-                <div>
-                  <div className="font-mono text-sm font-bold">&lt; 0,8s</div>
-                  <div className="text-[10px] text-muted-foreground">reconnaissance</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-            Propulsé par YOLOv8 + FaceNet IA
-          </p>
-        </div>
-      </div>
-
-      {/* Right form */}
-      <div className="relative flex flex-col bg-background">
+    <div className="min-h-screen bg-background">
+      {/* Centered form */}
+      <div className="relative mx-auto flex min-h-screen max-w-xl flex-col">
         <div className="flex justify-end p-6 text-xs text-muted-foreground">
           Support IT : <a className="ml-1.5 underline-offset-4 hover:text-foreground hover:underline" href="mailto:it@entreprise.com">it@entreprise.com</a>
         </div>
