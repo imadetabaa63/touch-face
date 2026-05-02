@@ -35,19 +35,19 @@ function AttendancePage() {
       {/* Toolbar */}
       <div className="mb-6 flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-card p-4">
         <div className="flex items-center gap-2">
-          <button className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:bg-white/5">
+          <button className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:bg-secondary">
             <ChevronLeft className="h-4 w-4" />
           </button>
-          <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-background/40 px-3 py-2 text-sm font-medium">
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-secondary/50 px-3 py-2 text-sm font-medium">
             <Calendar className="h-4 w-4 text-primary" />
             21 avril 2026
           </div>
-          <button className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:bg-white/5">
+          <button className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:bg-secondary">
             <ChevronRight className="h-4 w-4" />
           </button>
         </div>
 
-        <div className="flex rounded-lg border border-border bg-background/40 p-1">
+        <div className="flex rounded-lg border border-border bg-secondary/50 p-1">
           {(["jour", "semaine", "mois"] as const).map((v) => (
             <button
               key={v}
@@ -62,10 +62,10 @@ function AttendancePage() {
         </div>
 
         <div className="ml-auto flex gap-2">
-          <button className="inline-flex items-center gap-2 rounded-lg border border-border bg-background/40 px-3 py-2 text-sm transition-colors hover:bg-white/5">
+          <button className="inline-flex items-center gap-2 rounded-lg border border-border bg-secondary/50 px-3 py-2 text-sm transition-colors hover:bg-secondary">
             <FileText className="h-4 w-4" /> Exporter PDF
           </button>
-          <button className="inline-flex items-center gap-2 rounded-lg border border-border bg-background/40 px-3 py-2 text-sm transition-colors hover:bg-white/5">
+          <button className="inline-flex items-center gap-2 rounded-lg border border-border bg-secondary/50 px-3 py-2 text-sm transition-colors hover:bg-secondary">
             <Download className="h-4 w-4" /> Exporter Excel
           </button>
         </div>
@@ -102,7 +102,7 @@ function AttendancePage() {
                   r.arrival === "—" ? "text-muted-foreground" :
                   parseInt(r.arrival) >= 9 ? "text-warning" : "text-success";
                 return (
-                  <tr key={r.employee.id} className={`border-b border-border/50 transition-colors hover:bg-white/[0.03] ${i % 2 === 1 ? "bg-white/[0.015]" : ""}`}>
+                  <tr key={r.employee.id} className={`border-b border-border/50 transition-colors hover:bg-secondary/60 ${i % 2 === 1 ? "bg-secondary/30" : ""}`}>
                     <td className="px-4 py-3 font-mono text-xs text-muted-foreground">{String(i + 1).padStart(2, "0")}</td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
@@ -133,7 +133,7 @@ function AttendancePage() {
                           <div className="font-mono text-xs">{
                             r.arrival === "—" ? "—" : "en cours"
                           }</div>
-                          <div className="mt-1 h-1 w-20 overflow-hidden rounded-full bg-white/5">
+                          <div className="mt-1 h-1 w-20 overflow-hidden rounded-full bg-secondary">
                             <div className="h-full gradient-primary" style={{ width: r.arrival === "—" ? "0%" : "65%" }} />
                           </div>
                         </div>
@@ -145,7 +145,7 @@ function AttendancePage() {
                       </span>
                     </td>
                     <td className="px-4 py-3 text-right">
-                      <button onClick={() => setOpen(i)} className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-white/5" aria-label="Voir détails">
+                      <button onClick={() => setOpen(i)} className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-secondary" aria-label="Voir détails">
                         <Eye className="h-4 w-4" />
                       </button>
                     </td>
@@ -169,7 +169,7 @@ function AttendancePage() {
                   <h3 className="font-display text-xl font-bold">Détails présence — {r.employee.firstName} {r.employee.lastName}</h3>
                   <p className="text-xs text-muted-foreground">Lundi 21 avril 2026 · {r.employee.department}</p>
                 </div>
-                <button onClick={() => setOpen(null)} className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:bg-white/5">
+                <button onClick={() => setOpen(null)} className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:bg-secondary">
                   <X className="h-4 w-4" />
                 </button>
               </div>
@@ -197,7 +197,7 @@ function AttendancePage() {
                     ))}
                   </ul>
 
-                  <div className="mt-6 grid grid-cols-3 gap-3 rounded-xl border border-border bg-background/40 p-4">
+                  <div className="mt-6 grid grid-cols-3 gap-3 rounded-xl border border-border bg-secondary/50 p-4">
                     <div>
                       <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Total</div>
                       <div className="font-display text-lg font-bold">7h 58min</div>
