@@ -1,7 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, Lock, ArrowRight, Eye, EyeOff, ShieldCheck, Hexagon } from "lucide-react";
-import neuralFace from "@/assets/neural-face.jpg";
+
 
 export const Route = createFileRoute("/login")({
   head: () => ({
