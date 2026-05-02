@@ -131,12 +131,13 @@ function Dashboard() {
                 <YAxis stroke="oklch(0.7 0.015 260)" fontSize={12} tickLine={false} axisLine={false} />
                 <Tooltip
                   contentStyle={{
-                    background: "oklch(0.18 0.03 265)",
-                    border: "1px solid oklch(1 0 0 / 0.1)",
+                    background: "white",
+                    border: "1px solid var(--color-border)",
                     borderRadius: "10px",
                     fontSize: "12px",
+                    boxShadow: "var(--shadow-elevated)",
                   }}
-                  labelStyle={{ color: "oklch(0.97 0 0)" }}
+                  labelStyle={{ color: "var(--color-foreground)" }}
                 />
                 <Area type="monotone" dataKey="presents" stroke="oklch(0.68 0.16 160)" strokeWidth={2.5} fill="url(#gPres)" />
                 <Area type="monotone" dataKey="absents" stroke="oklch(0.62 0.24 25)" strokeWidth={2.5} fill="url(#gAbs)" />
