@@ -57,7 +57,7 @@ function EmployeesPage() {
             <List className="h-4 w-4" />
           </button>
         </div>
-        <button className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2.5 text-sm transition-colors hover:bg-white/5">
+        <button className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2.5 text-sm transition-colors hover:bg-secondary">
           <Download className="h-4 w-4" /> Exporter
         </button>
         <button className="inline-flex items-center gap-2 rounded-lg gradient-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]">
@@ -83,7 +83,7 @@ function EmployeesPage() {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
-                <div className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-background/70 px-2 py-1 text-[10px] backdrop-blur-md">
+                <div className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-background/80 px-2 py-1 text-[10px] backdrop-blur-md">
                   <span className={`h-1.5 w-1.5 rounded-full ${e.active ? "bg-success" : "bg-destructive"}`} />
                   {e.active ? "Actif" : "Inactif"}
                 </div>
@@ -134,7 +134,7 @@ function EmployeesPage() {
             </thead>
             <tbody>
               {employees.map((e, i) => (
-                <tr key={e.id} className={`border-b border-border/50 transition-colors hover:bg-white/[0.03] ${i % 2 === 1 ? "bg-white/[0.015]" : ""}`}>
+                <tr key={e.id} className={`border-b border-border/50 transition-colors hover:bg-secondary/60 ${i % 2 === 1 ? "bg-secondary/30" : ""}`}>
                   <td className="px-5 py-3"><img src={avatarUrl(e.avatar)} alt="" className="h-9 w-9 rounded-full" width={36} height={36} /></td>
                   <td className="px-5 py-3 font-medium">{e.firstName} {e.lastName}</td>
                   <td className="px-5 py-3 font-mono text-xs text-muted-foreground">{e.id}</td>
@@ -153,7 +153,7 @@ function EmployeesPage() {
                   </td>
                   <td className="px-5 py-3 text-xs text-muted-foreground">{e.lastSeen}</td>
                   <td className="px-5 py-3 text-right">
-                    <button onClick={() => setSelected(e)} className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-white/5">
+                    <button onClick={() => setSelected(e)} className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-secondary">
                       <Eye className="h-4 w-4" />
                     </button>
                   </td>
@@ -171,7 +171,7 @@ function EmployeesPage() {
           <aside className="fixed right-0 top-0 z-50 h-screen w-full max-w-[420px] overflow-y-auto border-l border-border bg-sidebar-bg shadow-elevated animate-slide-in-right scrollbar-thin">
             <div className="sticky top-0 flex items-center justify-between border-b border-border bg-sidebar-bg/90 p-5 backdrop-blur-xl">
               <h3 className="font-display text-lg font-bold">Profil collaborateur</h3>
-              <button onClick={() => setSelected(null)} className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:bg-white/5">
+              <button onClick={() => setSelected(null)} className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:bg-secondary">
                 <X className="h-4 w-4" />
               </button>
             </div>
@@ -212,7 +212,7 @@ function EmployeesPage() {
               <h4 className="mt-6 mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Activité récente</h4>
               <ul className="space-y-2 text-xs">
                 {["Aujourd'hui 08h32 · Entrée", "Hier 17h15 · Sortie", "Hier 08h28 · Entrée", "Vendredi 17h02 · Sortie", "Vendredi 08h41 · Entrée"].map((a, i) => (
-                  <li key={i} className="flex items-center gap-2 rounded-lg border border-border bg-background/40 px-3 py-2">
+                  <li key={i} className="flex items-center gap-2 rounded-lg border border-border bg-secondary/50 px-3 py-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                     {a}
                   </li>
@@ -220,7 +220,7 @@ function EmployeesPage() {
               </ul>
 
               <div className="mt-6 flex gap-2">
-                <button className="flex-1 rounded-lg border border-border py-2.5 text-sm transition-colors hover:bg-white/5">
+                <button className="flex-1 rounded-lg border border-border py-2.5 text-sm transition-colors hover:bg-secondary">
                   <Pencil className="mr-1.5 inline h-3.5 w-3.5" /> Modifier
                 </button>
                 <button className="flex-1 rounded-lg border border-destructive/40 bg-destructive/10 py-2.5 text-sm text-destructive transition-colors hover:bg-destructive/20">

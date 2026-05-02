@@ -74,7 +74,7 @@ function KpiCard({
         </div>
         <p className="mt-1 text-xs text-muted-foreground">{sub}</p>
         {progress !== undefined && (
-          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/5">
+          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-secondary">
             <div className="h-full rounded-full transition-all" style={{ width: `${progress}%`, background: color }} />
           </div>
         )}
@@ -158,7 +158,7 @@ function Dashboard() {
                     <span className="font-medium">{d.name}</span>
                     <span className="font-mono text-muted-foreground">{d.rate}% · {d.count}</span>
                   </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-white/5">
+                  <div className="h-2 overflow-hidden rounded-full bg-secondary">
                     <div className="h-full rounded-full transition-all" style={{ width: `${d.rate}%`, background: color }} />
                   </div>
                 </div>
@@ -200,9 +200,9 @@ function Dashboard() {
                 return (
                   <tr
                     key={i}
-                    className={`border-b border-border/50 transition-colors hover:bg-white/[0.03] ${
+                    className={`border-b border-border/50 transition-colors hover:bg-secondary/60 ${
                       s.isNew ? "bg-primary/5 shadow-[inset_3px_0_0_var(--color-primary)]" : ""
-                    } ${i % 2 === 1 ? "bg-white/[0.015]" : ""}`}
+                    } ${i % 2 === 1 ? "bg-secondary/30" : ""}`}
                   >
                     <td className="px-5 py-3 font-mono font-bold">{s.time}</td>
                     <td className="px-5 py-3">
@@ -255,7 +255,7 @@ function Dashboard() {
               <Link
                 key={e.id}
                 to="/dashboard/employees"
-                className="flex items-center gap-3 rounded-lg border border-transparent p-2.5 transition-all hover:border-border hover:bg-white/[0.03]"
+                className="flex items-center gap-3 rounded-lg border border-transparent p-2.5 transition-all hover:border-border hover:bg-secondary/60"
               >
                 <div className="relative">
                   <img src={avatarUrl(e.avatar)} alt="" className="h-10 w-10 rounded-full" width={40} height={40} />
@@ -313,14 +313,14 @@ function Anomaly({ icon, tone, title, detail }: { icon: React.ReactNode; tone: "
     info: "border-info/30 bg-info/10 text-info",
   }[tone];
   return (
-    <div className="rounded-xl border border-border bg-background/40 p-3">
+    <div className="rounded-xl border border-border bg-secondary/50 p-3">
       <div className="flex items-start gap-3">
         <span className={`grid h-9 w-9 place-items-center rounded-lg border ${toneClasses}`}>{icon}</span>
         <div className="min-w-0 flex-1">
           <div className="text-sm font-medium">{title}</div>
           <div className="text-xs text-muted-foreground">{detail}</div>
         </div>
-        <button className="rounded-md border border-border px-2.5 py-1 text-xs transition-colors hover:bg-white/5">Action</button>
+        <button className="rounded-md border border-border px-2.5 py-1 text-xs transition-colors hover:bg-secondary">Action</button>
       </div>
     </div>
   );
