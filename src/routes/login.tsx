@@ -27,11 +27,21 @@ function LoginPage() {
 
         <div className="flex flex-1 items-center justify-center px-6 pb-10">
           <div className="w-full max-w-md">
+            <div className="mb-8 flex items-center gap-3">
+              <div className="grid h-11 w-11 place-items-center rounded-xl gradient-primary glow-primary">
+                <Hexagon className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
+              </div>
+              <div>
+                <div className="font-display text-base font-bold">FaceGate</div>
+                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">PRÉSENCE</div>
+              </div>
+            </div>
             <div className="text-sm text-muted-foreground">Bon retour</div>
             <h1 className="mt-1 font-display text-3xl font-bold tracking-tight">Portail Responsable</h1>
             <p className="mt-2 text-sm text-muted-foreground">
               Vos identifiants vous ont été envoyés par le service informatique.
             </p>
+
 
             <form
               className="mt-8 space-y-5"
