@@ -18,8 +18,11 @@ const navItems = [
   { to: "/dashboard/add", label: "Ajouter un collaborateur", icon: UserPlus },
   { to: "/dashboard/employees", label: "Collaborateurs", icon: Users },
   { to: "/dashboard/attendance", label: "Présence", icon: ClipboardList },
-  { to: "/dashboard/reports", label: "Rapports", icon: TrendingUp },
-  { to: "/dashboard/settings", label: "Paramètres", icon: Settings },
+] as const;
+
+const extraItems = [
+  { label: "Rapports", icon: TrendingUp },
+  { label: "Paramètres", icon: Settings },
 ] as const;
 
 export function ManagerSidebar() {
